@@ -1,10 +1,13 @@
 package de.oette.course.B07;
 
 import org.junit.jupiter.api.Test;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+
 import static org.assertj.core.api.Assertions.assertThat;
+
 
 class CalculatorControllerTest {
 
@@ -12,6 +15,7 @@ class CalculatorControllerTest {
     private RestTemplate restTemplate = new RestTemplate();
 
 
+ 
     @Test
     void testSum() {
         ResponseEntity<Integer> response = restTemplate.getForEntity(URL + "sum?x=5&y=7", Integer.class);

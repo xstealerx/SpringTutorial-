@@ -1,8 +1,24 @@
 package de.oette.course.B07;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(value ="/calculate")
 public class CalculatorController {
 
-    // TODO Implement sum!
+    
+    @GetMapping(value="/sum")
+    public Integer sum(int x, int y){
+        return x+y;
+    }
 
-    // TODO Implement multiply!
+
+    @GetMapping(value="/multiply")
+    public Integer multiply(int x, int y){
+    return x*y;
+    
+    }   
 }
+
