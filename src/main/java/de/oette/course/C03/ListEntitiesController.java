@@ -16,6 +16,7 @@ public class ListEntitiesController {
 
     @GetMapping
     public List<C03Entity> getList() {
+        ListEntityService.createEntities();
         return listEntityService.getList();
     }
 }

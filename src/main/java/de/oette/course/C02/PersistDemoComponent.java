@@ -13,13 +13,13 @@ public class PersistDemoComponent {
 
     @PersistenceContext
     private EntityManager entityManager;
-
-    @EventListener(value = ApplicationReadyEvent.class)
+    private int count = 0;
+ 
     @Transactional
-    public void onStartup() {
-        entityManager.persist((new DemoEntityWithName()));
-        entityManager.persist((new DemoEntityWithName()));
-        entityManager.persist((new DemoEntityWithName()));
+    public void persistEntitie() {
+     entityManager.persist(new DemoEntityWithName());
+     if(count % 3 == 0 ) throw new RuntimeException("Boom");
+     count++;
 
     }
 } 

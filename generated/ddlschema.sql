@@ -13,6 +13,16 @@ create sequence hibernate_sequence start 1 increment 1;
         primary key (id)
     );
 
+    create table AppVisiotList (
+       id int8 not null,
+        primary key (id)
+    );
+
+    create table AppVisiotList_visitors (
+       AppVisiotList_id int8 not null,
+        visitors varchar(255)
+    );
+
     create table C03Entity (
        id int8 not null,
         name varchar(255),
@@ -43,6 +53,7 @@ create sequence hibernate_sequence start 1 increment 1;
 
     create table DemoEntityWithName (
        id int8 not null,
+        name varchar(255),
         primary key (id)
     );
 
@@ -71,3 +82,8 @@ create sequence hibernate_sequence start 1 increment 1;
         count int8 not null,
         primary key (id)
     );
+
+    alter table if exists AppVisiotList_visitors 
+       add constraint FKkyvnk6tuifr6shi2lbeaot18s 
+       foreign key (AppVisiotList_id) 
+       references AppVisiotList;
