@@ -22,10 +22,18 @@ public class CompanyService {
     }
 
     private void loadFromDatabase() {
-
+        Address address = entityManager.find(Address.class,1L);
+        System.out.println(address.getCompany().toString());
+       
+      
     }
 
     private void createCompaniesAndClients() {
+        Address address = new Address();
+        entityManager.persist(address);
 
+        Company company = new Company();
+        company.setAddress(address);
+        entityManager.persist(company);
     }
 }

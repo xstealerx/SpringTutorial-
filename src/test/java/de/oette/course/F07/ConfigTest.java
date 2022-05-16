@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * UCwMuBzSlLohFKYrIjfTJceXXTthgX
  * AltaKSTJBOQrmQlyNWxcideNvvBnFU
  */
-@SpringBootTest
+@SpringBootTest(classes = MyConfiguration.class)
 public class ConfigTest {
 
     @Autowired

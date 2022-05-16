@@ -12,18 +12,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class PropertyDemoComponent {
 
-    private final String property1;
-    private final String property2;
-
-    public PropertyDemoComponent(@Value("${property.demo.inject}") String property1,
-                                 @Value("${property.demo.environment-var}") String property2) {
-        this.property1 = property1;
-        this.property2 = property2;
-    }
+   private final PropertyBundle propertyBundle;
+   
+   public PropertyDemoComponent(PropertyBundle propertyBundle){
+       this.propertyBundle = propertyBundle;
+   }
 
     @EventListener(ApplicationReadyEvent.class)
     public void onStartup() {
-        System.out.println(property1);
-        System.out.println(property2);
+        System.out.println(propertyBundle.getInject());
+        System.out.println(propertyBundle.getSubCategorry().getValue1());
+        System.out.println(propertyBundle.getSubCategorry().getValue2());
+  
     }
 }

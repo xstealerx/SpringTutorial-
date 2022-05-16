@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -21,6 +22,14 @@ public class Address {
     @Column(name = "zip_code_and_city")
     private String zipCodeAndCity = RandomStringUtils.randomAlphanumeric(10);
 
+    @OneToOne(mappedBy = "address")
+    private Company company;
+    public Company getCompany() {
+        return company;
+    }
+    public void setCompany(Company company){
+        this.company = company;
+    }
 
     @Override
     public String toString() {
